@@ -5,7 +5,7 @@ services:
     build: ./backend
     container_name: ${BACKEND_CONTAINER_NAME}_be
     ports:
-      - '3000:3000'
+      - '8000:8000'
     depends_on:
       - postgres
     environment:

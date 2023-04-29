@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development tsx --watch ./app.ts",
+    "start": "NODE_ENV=production tsc && node ./dist/app.js",
     "build": "yarn clear-dist && NODE_ENV=production tsc",
     "clear-dist": "rimraf ./dist"
   },
