@@ -1,0 +1,7 @@
+{
+  "timezone": "Asia/Tokyo",
+  "extends": ["config.base"],
+  "schedule": "after 10am and before 10pm every weekday",
+  "separateMinorPatch": true,
+  "separateMultipleMajor": true
+}
