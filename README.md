@@ -8,13 +8,9 @@
 `/ts-full-starter-kit`
 
 ```bash
-make copy
+make
 ```
 
 ```bash
 docker-compose up -d
-```
-
-```bash
-make install
 ```

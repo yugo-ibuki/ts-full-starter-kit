@@ -31,3 +31,4 @@ refresh:
 reset:
 	cd apps/backend && rm -rf ./node_modules && rm -rf ./dist
 	cd apps/frontend && rm -rf ./node_modules && rm -rf ./dist
+	cd infra/database && rm -rf ./node_modules && rm -rf ./dist
