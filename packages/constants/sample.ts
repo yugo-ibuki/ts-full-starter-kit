@@ -1,0 +1,3 @@
+const CONSTANTS = {
+  SAMPLE: 'SAMPLE',
+}
