@@ -8,7 +8,9 @@
     "dev": "NODE_ENV=development tsx --watch app.ts",
     "start": "NODE_ENV=production tsc && node ./dist/app.js",
     "build": "yarn clear-dist && NODE_ENV=production tsc",
-    "clear-dist": "rimraf ./dist"
+    "clear-dist": "rimraf ./dist",
+    "clear-modules": "rimraf ./node_modules",
+    "refresh": "yarn clear-dist && yarn clear-modules && yarn"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
