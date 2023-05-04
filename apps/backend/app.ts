@@ -4,7 +4,7 @@ import { createYoga } from 'graphql-yoga'
 const port = process.env.PORT || 8001;
 const app = express();
 
-const cors = {
+const options = {
     cors: {
         origin: 'http://localhost:3000',
         credentials: true,
@@ -13,7 +13,7 @@ const cors = {
     }
 }
 
-const yoga = createYoga({})
+const yoga = createYoga(options)
 
 // Bind GraphQL Yoga to `/graphql` endpoint
 app.use('/graphql', yoga)
