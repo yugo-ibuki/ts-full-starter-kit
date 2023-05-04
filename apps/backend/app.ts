@@ -1,32 +1,26 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
+import { createYoga } from 'graphql-yoga'
 
+const port = process.env.PORT || 8001;
 const app = express();
 
-// cors
-const allowCrossDomain = (req: Request, res: Response, next: NextFunction) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
-    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'Content-Type, Authorization, access_token'
-    )
-    next();
+const cors = {
+    cors: {
+        origin: 'http://localhost:3000',
+        credentials: true,
+        allowedHeaders: ['X-Custom-Header'],
+        methods: ['POST']
+    }
 }
-app.use(allowCrossDomain)
+
+const yoga = createYoga({})
+
+// Bind GraphQL Yoga to `/graphql` endpoint
+app.use('/graphql', yoga)
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
-
-const port = process.env.PORT || 8000;
-
-app.get('/', (req, res) => {
-    res.send('heyeee');
-});
-
-app.get('/hello', (req, res) => {
-    res.json({ message: 'Hello World!!' });
-});
 
 app.listen(port, () =>
     console.log(`[${new Date().toISOString()}] start server[${port}]`)
