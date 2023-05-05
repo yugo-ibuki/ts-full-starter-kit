@@ -5,17 +5,20 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development ts-node app.ts",
+    "dev": "rimraf ./schema.graphql && yarn schema && NODE_ENV=development tsx app.ts",
     "start": "NODE_ENV=production tsc && node ./dist/app.js",
     "build": "yarn clear-dist && NODE_ENV=production tsc",
+    "schema": "tsx scripts/build-schema.ts",
     "clear-dist": "rimraf ./dist",
     "clear-modules": "rimraf ./node_modules",
     "refresh": "yarn clear-dist && yarn clear-modules && yarn"
   },
   "dependencies": {
+    "@pothos/core": "^3.30.0",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
     "graphql": "^16.6.0",
+    "graphql-scalars": "^1.21.3",
     "graphql-yoga": "^3.9.1"
   },
   "devDependencies": {
