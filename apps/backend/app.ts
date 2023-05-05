@@ -1,10 +1,12 @@
-import express from 'express';
+import express from 'express'
 import { createYoga } from 'graphql-yoga'
+import { schema } from '@/schema'
 
 const port = process.env.PORT || 8001;
 const app = express();
 
-const options = {
+const options  = {
+    schema,
     cors: {
         origin: 'http://localhost:3000',
         credentials: true,
